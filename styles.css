@@ -1,0 +1,68 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #111;
+  color: white;
+}
+
+.app {
+  padding: 10px;
+}
+
+.top-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.login-form input {
+  padding: 6px;
+}
+
+.login-form button {
+  padding: 6px 10px;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.left-panel, .right-panel {
+  background: #222;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.channel-list div, .category-list div {
+  padding: 6px;
+  margin: 4px 0;
+  background: #333;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.channel-list div:hover, .category-list div:hover {
+  background: #444;
+}
+
+#player {
+  width: 100%;
+  height: 260px;
+  background: black;
+}
+
+.embed-box {
+  margin-top: 10px;
+}
+
+#embedCode {
+  width: 100%;
+  height: 80px;
+}
