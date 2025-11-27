@@ -1,24 +1,15 @@
-import express from "express";
-import fetch from "node-fetch";
-import cors from "cors";
-
+const express = require("express");
+const path = require("path");
 const app = express();
-app.use(cors());
 
-app.get("/proxy", async (req, res) => {
-  const url = req.query.url;
-  if (!url) return res.status(400).send("No URL provided");
+// Serve files from /public
+app.use(express.static(path.join(__dirname, "public")));
 
-  try {
-    const response = await fetch(url);
-    const data = await response.arrayBuffer();
-
-    res.set("Content-Type", response.headers.get("content-type") || "application/octet-stream");
-    res.send(Buffer.from(data));
-  } catch (err) {
-    console.error(err);
-    res.status(500).send("Proxy error");
-  }
+// When someone goes to "/", load index.html
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public/index.html"));
 });
 
-app.listen(3000, () => console.log("Proxy running on port 3000"));
+// Start server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log("Server running on port " + PORT));
