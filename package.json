@@ -1,10 +1,15 @@
-{
-  "name": "iptv-proxy",
-  "version": "1.0.0",
-  "type": "module",
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "node-fetch": "^3.3.2"
-  }
-}
+const express = require("express");
+const path = require("path");
+const app = express();
+
+// Serve files from /public
+app.use(express.static(path.join(__dirname, "public")));
+
+// When someone goes to "/", load index.html
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "public/index.html"));
+});
+
+// Start server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log("Server running on port " + PORT));
