@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>IPTV Cinema</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+</head>
+<body>
+
+  <div class="app">
+
+    <header class="top-bar">
+      <div class="logo">IPTV<span>Cinema</span></div>
+
+      <form id="login-form" class="login-form">
+        <input id="serverUrl" placeholder="Server URL">
+        <input id="username" placeholder="Username">
+        <input id="password" type="password" placeholder="Password">
+        <button type="submit">Connect</button>
+      </form>
+    </header>
+
+    <div id="status"></div>
+
+    <main class="main">
+      <section class="left-panel">
+        <div class="section-title">Categories</div>
+        <div id="category-row"></div>
+
+        <div class="section-title">Channels</div>
+        <div id="channel-grid"></div>
+      </section>
+
+      <section class="right-panel">
+        <h2 id="current-title">Select a channel</h2>
+        <video id="player" controls playsinline></video>
+      </section>
+    </main>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
